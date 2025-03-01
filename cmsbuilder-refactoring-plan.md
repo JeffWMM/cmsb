@@ -1,0 +1,423 @@
+# 📌 cmsBuilder Function Refactoring Plan
+
+Based on function usage analysis, the following functions are **highly used** across multiple files.
+Refactoring them will improve **code efficiency, maintainability, and performance**.
+
+---
+
+## **🚀 Functions Identified for Refactoring**
+
+### 🔹 `__construct()`
+- **Used in 156 files**
+- **Files where this function is found:**
+  - `cmsb/lib/ZenDB/Parser.php`
+  - `cmsb/lib/ZenDB/DBException.php`
+  - `cmsb/lib/ZenDB/RawSql.php`
+  - `cmsb/lib/ZenDB/DB.php`
+  - `cmsb/lib/ZenDB/MysqliStmtResultEmulator.php`
+  - `cmsb/lib/ZenDB/MysqliStmtWrapper.php`
+  - `cmsb/lib/Fields/BaseField.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/vendor/phpmailer/phpmailer/src/PHPMailer.php`
+  - `cmsb/vendor/phpmailer/phpmailer/src/OAuth.php`
+  - `cmsb/vendor/guzzlehttp/promises/src/TaskQueue.php`
+  - `cmsb/vendor/guzzlehttp/promises/src/Promise.php`
+  - `cmsb/vendor/guzzlehttp/promises/src/RejectionException.php`
+  - `cmsb/vendor/guzzlehttp/promises/src/Coroutine.php`
+  - `cmsb/vendor/guzzlehttp/promises/src/RejectedPromise.php`
+  - `cmsb/vendor/guzzlehttp/promises/src/EachPromise.php`
+  - `cmsb/vendor/guzzlehttp/promises/src/AggregateException.php`
+  - `cmsb/vendor/guzzlehttp/promises/src/FulfilledPromise.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/FnStream.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/UriNormalizer.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/CachingStream.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/PumpStream.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/Response.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/InflateStream.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/Stream.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/UriComparator.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/Request.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/DroppingStream.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/LazyOpenStream.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/BufferStream.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/Uri.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/UploadedFile.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/AppendStream.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/UriResolver.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/LimitStream.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/ServerRequest.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/MultipartStream.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/RedirectMiddleware.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/BodySummarizer.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/TransferStats.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/Pool.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/HandlerStack.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/PrepareBodyMiddleware.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/RetryMiddleware.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/MessageFormatter.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/Client.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/Handler/CurlMultiHandler.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/Handler/CurlHandler.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/Handler/MockHandler.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/Cookie/SessionCookieJar.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/Cookie/SetCookie.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/Cookie/FileCookieJar.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/Cookie/CookieJar.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/Exception/BadResponseException.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/Exception/ConnectException.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php`
+  - `cmsb/vendor/composer/ClassLoader.php`
+  - `cmsb/vendor/itools/smartstring/src/SmartString.php`
+  - `cmsb/vendor/itools/smartarray/src/SmartNull.php`
+  - `cmsb/vendor/itools/smartarray/src/SmartArray.php`
+  - `cmsb/vendor/league/oauth2-google/src/Provider/GoogleUser.php`
+  - `cmsb/vendor/league/oauth2-client/src/Token/AccessToken.php`
+  - `cmsb/vendor/league/oauth2-client/src/Provider/GenericResourceOwner.php`
+  - `cmsb/vendor/league/oauth2-client/src/Provider/GenericProvider.php`
+  - `cmsb/vendor/league/oauth2-client/src/Provider/AbstractProvider.php`
+  - `cmsb/vendor/league/oauth2-client/src/Provider/Exception/IdentityProviderException.php`
+  - `cmsb/vendor/firebase/php-jwt/src/CachedKeySet.php`
+  - `cmsb/vendor/firebase/php-jwt/src/Key.php`
+  - `cmsb/vendor/symfony/polyfill-php81/Resources/stubs/ReturnTypeWillChange.php`
+  - `cmsb/vendor/symfony/polyfill-php81/Resources/stubs/CURLStringFile.php`
+  - `cmsb/vendor/symfony/polyfill-php83/Resources/stubs/Override.php`
+  - `cmsb/vendor/symfony/polyfill-php84/Resources/stubs/Deprecated.php`
+  - `cmsb/vendor/symfony/polyfill-php82/SensitiveParameterValue.php`
+  - `cmsb/vendor/symfony/polyfill-php82/Resources/stubs/AllowDynamicProperties.php`
+  - `cmsb/vendor/symfony/polyfill-php82/Resources/stubs/SensitiveParameter.php`
+---
+
+### 🔹 `validate()`
+- **Used in 46 files**
+- **Files where this function is found:**
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/Cookie/SetCookie.php`
+---
+
+### 🔹 `setup()`
+- **Used in 32 files**
+- **Files where this function is found:**
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+---
+
+### 🔹 `transform()`
+- **Used in 26 files**
+- **Files where this function is found:**
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+---
+
+### 🔹 `__toString()`
+- **Used in 18 files**
+- **Files where this function is found:**
+  - `cmsb/lib/ZenDB/RawSql.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/FnStream.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/PumpStream.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/Stream.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/BufferStream.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/Uri.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php`
+  - `cmsb/vendor/guzzlehttp/psr7/src/AppendStream.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/HandlerStack.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/Cookie/SetCookie.php`
+  - `cmsb/vendor/itools/smartstring/src/SmartString.php`
+  - `cmsb/vendor/itools/smartarray/src/SmartNull.php`
+  - `cmsb/vendor/itools/smartarray/src/SmartArray.php`
+  - `cmsb/vendor/league/oauth2-client/src/Token/AccessToken.php`
+  - `cmsb/vendor/league/oauth2-client/src/Token/AccessTokenInterface.php`
+  - `cmsb/vendor/league/oauth2-client/src/Grant/AbstractGrant.php`
+  - `cmsb/vendor/psr/http-message/src/UriInterface.php`
+  - `cmsb/vendor/psr/http-message/src/StreamInterface.php`
+---
+
+### 🔹 `get()`
+- **Used in 16 files**
+- **Files where this function is found:**
+  - `cmsb/lib/Settings.php`
+  - `cmsb/lib/Request.php`
+  - `cmsb/lib/ZenDB/Config.php`
+  - `cmsb/lib/ZenDB/DB.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/vendor/guzzlehttp/guzzle/src/ClientTrait.php`
+  - `cmsb/vendor/itools/smartarray/src/SmartArray.php`
+---
+
+### 🔹 `getEditRow()`
+- **Used in 15 files**
+- **Files where this function is found:**
+  - `cmsb/lib/Fields/DateTime.php`
+  - `cmsb/lib/Fields/TextBox.php`
+  - `cmsb/lib/Fields/TabGroup.php`
+  - `cmsb/lib/Fields/RelatedRecords.php`
+  - `cmsb/lib/Fields/Special.php`
+  - `cmsb/lib/Fields/DateCalendar.php`
+  - `cmsb/lib/Fields/InputHidden.php`
+  - `cmsb/lib/Fields/AccessList.php`
+  - `cmsb/lib/Fields/Checkbox.php`
+  - `cmsb/lib/Fields/None.php`
+  - `cmsb/lib/Fields/Separator.php`
+  - `cmsb/lib/Fields/BaseField.php`
+  - `cmsb/lib/Fields/SpecialFieldnames/createdDate.php`
+  - `cmsb/lib/Fields/SpecialFieldnames/dragSortOrder.php`
+  - `cmsb/lib/Fields/SpecialFieldnames/updatedDate.php`
+---
+
+### 🔹 `set()`
+- **Used in 14 files**
+- **Files where this function is found:**
+  - `cmsb/lib/Settings.php`
+  - `cmsb/lib/ZenDB/Config.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/vendor/phpmailer/phpmailer/src/PHPMailer.php`
+  - `cmsb/vendor/composer/ClassLoader.php`
+  - `cmsb/vendor/itools/smartstring/src/SmartString.php`
+---
+
+### 🔹 `getEditComponent()`
+- **Used in 13 files**
+- **Files where this function is found:**
+  - `cmsb/lib/Fields/Wysiwyg.php`
+  - `cmsb/lib/Fields/TextBox.php`
+  - `cmsb/lib/Fields/ForeignKey.php`
+  - `cmsb/lib/Fields/ParentCategory.php`
+  - `cmsb/lib/Fields/DateCalendar.php`
+  - `cmsb/lib/Fields/Upload.php`
+  - `cmsb/lib/Fields/TextField.php`
+  - `cmsb/lib/Fields/AccessList.php`
+  - `cmsb/lib/Fields/ListField.php`
+  - `cmsb/lib/Fields/Checkbox.php`
+  - `cmsb/lib/Fields/BaseField.php`
+  - `cmsb/lib/Fields/SpecialFieldnames/createdDate.php`
+  - `cmsb/lib/Fields/SpecialFieldnames/updatedDate.php`
+---
+
+### 🔹 `add()`
+- **Used in 13 files**
+- **Files where this function is found:**
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/3rdParty/HTMLPurifier/HTMLPurifier.standalone.php`
+  - `cmsb/vendor/guzzlehttp/promises/src/TaskQueue.php`
+  - `cmsb/vendor/guzzlehttp/promises/src/TaskQueueInterface.php`
+  - `cmsb/vendor/composer/ClassLoader.php`
+  - `cmsb/vendor/itools/smartstring/src/SmartString.php`
+---
+
+
+## **📌 Suggested Refactoring Strategies**
+- **Create a centralized helper file** for common functions.
+- **Reduce redundant function calls** by using better parameterization.
+- **Optimize database queries** to minimize repetitive queries.
+- **Improve function documentation** to avoid unnecessary rewrites.
+
+---
+
+📌 **Actionable Next Steps**:
+1. Review **each function's implementation** in the mentioned files.
+2. Identify **where code can be merged or improved**.
+3. Implement **refactored versions** of the most commonly used functions.
+
+🚀 Let me know if you want me to generate refactored versions of any of these functions! 🔥
